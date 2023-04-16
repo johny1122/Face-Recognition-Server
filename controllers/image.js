@@ -1,6 +1,6 @@
 const handleApiCall = (req, res) => {
     // Your PAT (Personal Access Token) can be found in the portal under Authentication
-    const PAT = '01ee86a4498f42448cca0c75cf72a08e';
+    const PAT = process.env.API_CLARIFAI;
     // Specify the correct user_id/app_id pairings
     // Since you're making inferences outside your app's scope
     const USER_ID = 'johnny11';       
