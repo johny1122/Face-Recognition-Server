@@ -1,5 +1,5 @@
 const saltRounds = 10;
-const handleRegister = (req, res, db, bcrypt) => {
+export const handleRegister = (req, res, db, bcrypt) => {
     const {email, name, password} = req.body;
     if (!email || !name || !password){
         res.status(400).json('incorrect form submission')
@@ -31,8 +31,4 @@ const handleRegister = (req, res, db, bcrypt) => {
         })
         .catch(err => res.status(400).json('unable to register'))
     })
-}
-
-module.exports = {
-    handleRegister: handleRegister
 }

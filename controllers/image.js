@@ -1,4 +1,4 @@
-const handleApiCall = (req, res) => {
+export const handleApiCall = (req, res) => {
     // Your PAT (Personal Access Token) can be found in the portal under Authentication
     const PAT = process.env.API_CLARIFAI;
     // Specify the correct user_id/app_id pairings
@@ -40,7 +40,7 @@ const handleApiCall = (req, res) => {
     .catch(err => res.status(400).json('unable to get output'))
 }
 
-const handleImage = (req, res, db) => {
+export const handleImage = (req, res, db) => {
     const {id} = req.body;
     db('users')
         .where('id', '=', id)
@@ -48,9 +48,4 @@ const handleImage = (req, res, db) => {
         .returning('entries')
         .then(entries => res.json(entries[0].entries))
         .catch(err => res.status(400).json('unable to get entries'))
-}
-
-module.exports = {
-    handleImage,
-    handleApiCall
 }

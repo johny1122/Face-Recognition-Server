@@ -1,4 +1,4 @@
-const handleSignin = (req, res, db, bcrypt) => {
+export const handleSignin = (req, res, db, bcrypt) => {
     const {email, password} = req.body;
     if (!email || !password){
         res.status(400).json('incorrect form submission')
@@ -22,8 +22,4 @@ const handleSignin = (req, res, db, bcrypt) => {
             })
         })
         .catch(err => res.status(400).json('Wrong credentials'))
-}
-
-module.exports = {
-    handleSignin: handleSignin
 }
